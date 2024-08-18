@@ -105,7 +105,7 @@ const ShortcutCard = (props: Props) => {
             </span>
           );
         })}
-        {shortcut.tags.length === 0 && <span className="text-gray-500 text-sm leading-4">{shortcut.description}</span>}
+        {shortcut.tags.length === 0 && <span className="text-gray-500 text-sm leading-4">{shortcut.description || '🍭'}</span>}
       </div>
       {
         shortcut.tags && shortcut.tags.length > 0 && !!shortcut.description && (
