@@ -107,10 +107,12 @@ const ShortcutCard = (props: Props) => {
         })}
         {shortcut.tags.length === 0 && <span className="text-gray-500 text-sm leading-4">{shortcut.description}</span>}
       </div>
-      {shortcut.tags.length !== 0 &&{
-        <div className="mt-2 w-full flex flex-row justify-start items-start gap-2 truncate">
-          <span className="text-gray-500 text-sm leading-4">{shortcut.description}</span>
-        </div>}
+      {
+        shortcut.tags && shortcut.tags.length > 0 && (
+          <div className="mt-2 w-full flex flex-row justify-start items-start gap-2 truncate">
+              <span className="text-gray-500 text-sm leading-4">{shortcut.description || '无描述'}</span>
+          </div>
+        )
       }
       <div className="w-full mt-2 flex gap-2 overflow-x-auto">
         <Tooltip title={creator.nickname} variant="solid" placement="top" arrow>
