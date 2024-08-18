@@ -7,9 +7,7 @@ interface Props {
 
 const getFaviconUrlWithProvider = (url: string, provider: string) => {
   try {
-    const searchParams = new URLSearchParams();
-    searchParams.set("domain", new URL(url).hostname);
-    return new URL(`?${searchParams.toString()}`, provider).toString();
+    return new URL(`${new URL(url).hostname}/256`, provider).toString();
   } catch (error) {
     return "";
   }
@@ -17,7 +15,7 @@ const getFaviconUrlWithProvider = (url: string, provider: string) => {
 
 const LinkFavicon = (props: Props) => {
   const { url } = props;
-  const faviconProvider = "https://www.google.com/s2/favicons";
+  const faviconProvider = "https://formidable-scarlet-whale.faviconkit.com/";
   const [faviconUrl, setFaviconUrl] = useState<string>(getFaviconUrlWithProvider(url, faviconProvider));
 
   const handleImgError = () => {
